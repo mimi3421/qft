@@ -22,7 +22,7 @@ jobs:
     - name: Install cross
       run: cargo install cross && rustup target add aarch64-unknown-linux-musl
     - name: Add linker # https://users.rust-lang.org/t/cross-compiling-how-to-statically-link-glibc/83907
-      run: mkdir .cargo && printf '\n[target.aarch64-unknown-linux-musl]\nlinker = "aarch64-linux-gnu-gcc"' >> .cargo/config
+      run: mkdir .cargo && printf '\n[target.aarch64-unknown-linux-musl]\nlinker = "aarch64-linux-gcc"' >> .cargo/config
     - name: Build-aarch64-musl
       run: RUSTFLAGS='-C target-feature=+crt-static' cargo build --verbose --release --target aarch64-unknown-linux-musl
     - name: Package
