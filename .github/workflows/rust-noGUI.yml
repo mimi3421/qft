@@ -20,12 +20,12 @@ jobs:
     - name: Build
       run: RUSTFLAGS='-C target-feature=+crt-static' cargo build --verbose --release --target x86_64-unknown-linux-gnu
     - name: Package
-      run: cd target/release/ && 7z a Linux.zip *
+      run: cd target/ && 7z a Linux.zip *
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: Linux
-        path: target/release/Linux.zip
+        path: target/Linux.zip
 
   build-win:
     runs-on: windows-latest
