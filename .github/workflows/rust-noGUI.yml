@@ -22,7 +22,7 @@ jobs:
     - name: Install cross
       run: cargo install cross && rustup target add aarch64-unknown-linux-musl
     - name: Build-aarch64-musl
-      run: RUSTFLAGS='-C target-feature=+crt-static -C link-arg=-lgcc' cargo build --verbose --release --target aarch64-unknown-linux-musl
+      run: RUSTFLAGS='-C target-feature=+crt-static' cargo build --verbose --release --target aarch64-unknown-linux-musl
     - name: Package
       run: cd target/ && 7z a Linux.zip *
     - name: Artifacts
